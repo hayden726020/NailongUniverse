@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>西安邮电奶龙大学</title>
+<meta name="description" content="奶龙已就位,即将护送你前往西安邮电大学官网。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="西安邮电奶龙大学">
+<meta property="og:description" content="奶龙已就位,即将护送你前往西安邮电大学官网。">
+<meta property="og:image" content="og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#014a95" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#051c3b" media="(prefers-color-scheme: dark)">
+<!-- 资源一律用绝对路径:任意路径都会返回本页,相对路径会在 /a/b 下失效 -->
+<link rel="preload" as="image" type="image/webp" href="logo.webp">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+  :root {
+    --blue: #02367f;        /* 西邮校徽蓝 */
+    --blue-deep: #011d47;
+    --ink: #0a2647;         /* 浅色底上的正文 */
+    --yellow: #fedf68;      /* 奶龙黄 */
+    --bg: #faf6ec;
+    --muted: #5b6b8c;
+    --frame: rgba(2, 54, 127, .38);
+    --frame-soft: rgba(2, 54, 127, .16);
+    --chip-border: rgba(2, 54, 127, .30);
+    --shadow: rgba(2, 54, 127, .18);
+    --serif: "Songti SC", "STZhongsong", "SimSun", "Noto Serif SC", serif;
+    --sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --blue: #7fb0ff;      /* 深底上的强调蓝 */
+      --ink: #e9effb;
+      --bg: #051c3b;
+      --muted: #9db1d6;
+      --frame: rgba(233, 239, 251, .34);
+      --frame-soft: rgba(233, 239, 251, .14);
+      --chip-border: rgba(233, 239, 251, .26);
+      --shadow: rgba(0, 0, 0, .5);
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* 顶部黄晕画在固定伪元素上:不随内容平铺重复,竖屏滚动也不会在底部出现接缝 */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background: radial-gradient(1100px 520px at 50% -8%, rgba(254, 223, 104, .22), transparent 62%);
+  }
+
+  /* ===== 证书式页面边框 ===== */
+  .frame {
+    position: fixed; inset: clamp(10px, 2vw, 18px);
+    border: 1px solid var(--frame); border-radius: 4px;
+    pointer-events: none; z-index: 1;
+  }
+  .frame::before {
+    content: ""; position: absolute; inset: 5px;
+    border: 1px solid var(--frame-soft); border-radius: 2px;
+  }
+
+  /* ===== hero 主舞台 ===== */
+  .page {
+    position: relative; z-index: 2;
+    min-height: 100svh;
+    display: flex; flex-direction: column; align-items: center;
+    padding: clamp(30px, 5vh, 46px) clamp(26px, 6vw, 64px) clamp(20px, 3.5vh, 32px);
+    text-align: center;
+  }
+  .top {
+    width: 100%; max-width: 980px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .wordmark { display: flex; align-items: center; gap: 10px; font-size: 14px; letter-spacing: .18em; font-weight: 600; }
+  .wordmark img { width: 30px; height: 30px; border-radius: 50%; background: #fff; box-shadow: 0 2px 8px var(--shadow); }
+  .est {
+    font-size: 11px; letter-spacing: .3em; padding: 6px 10px 6px 13px;
+    color: var(--muted); border: 1px solid var(--chip-border); border-radius: 999px;
+  }
+
+  main {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: clamp(16px, 2.6vh, 24px);
+    padding: 3vh 0;
+  }
+
+  /* 校徽 + 虚线轨道 */
+  .seal { position: relative; width: clamp(190px, 32vw, 290px); aspect-ratio: 1; }
+  .js .seal { animation: float 6s ease-in-out 4.4s infinite; }
+  .orbit {
+    position: absolute; inset: -16px; border-radius: 50%;
+    border: 1.5px dashed var(--frame);
+    animation: spin 46s linear infinite;
+  }
+  .orbit i { position: absolute; left: 50%; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; }
+  .orbit .dot-a { top: -5px; background: var(--yellow); box-shadow: 0 0 0 2px rgba(1, 68, 146, .55); }
+  .orbit .dot-b { bottom: -5px; background: var(--blue); }
+  .disc {
+    width: 100%; height: 100%; border-radius: 50%;
+    background: #fff; padding: 3.5%;
+    box-shadow: 0 26px 60px var(--shadow), 0 4px 14px var(--shadow);
+  }
+  .disc img { width: 100%; height: 100%; border-radius: 50%; display: block; }
+
+  .overline { font-size: 12px; letter-spacing: .38em; padding-left: .38em; color: var(--muted); text-transform: uppercase; }
+  h1 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(42px, 9vw, 82px); line-height: 1.12;
+    letter-spacing: .06em; padding-left: .06em;
+  }
+  .hl {
+    background: linear-gradient(180deg, transparent 60%, var(--yellow) 60%, var(--yellow) 94%, transparent 94%);
+    border-radius: 3px; padding: 0 .05em;
+  }
+  .tagline { font-size: clamp(15px, 2.4vw, 18px); color: var(--muted); }
+  .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .chips li {
+    font-size: 12px; letter-spacing: .08em; color: var(--muted);
+    border: 1px solid var(--chip-border); border-radius: 999px; padding: 6px 14px;
+  }
+
+  /* 前往按钮 */
+  .cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: clamp(4px, 1.5vh, 12px); }
+  .go {
+    position: relative; overflow: hidden;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 38px; border-radius: 999px; border: 0;
+    background: linear-gradient(160deg, #1c5cb4, var(--blue-deep));
+    color: #fff; font: inherit; font-size: 17px; font-weight: 700; letter-spacing: .14em;
+    text-decoration: none; cursor: pointer;
+    box-shadow: 0 16px 34px rgba(1, 68, 146, .38);
+    transition: transform .25s, box-shadow .25s;
+  }
+  .go .arr { transition: transform .25s; }
+  .go::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, .38) 50%, transparent 70%);
+    transform: translateX(-130%); transition: transform .6s;
+  }
+  .go:hover, .go:focus-visible { transform: translateY(-2px); box-shadow: 0 22px 44px rgba(1, 68, 146, .46); }
+  .go:hover .arr, .go:focus-visible .arr { transform: translateX(5px); }
+  .go:hover::after, .go:focus-visible::after { transform: translateX(130%); }
+  .go:active { transform: translateY(0) scale(.97); }
+  .ghost {
+    padding: 16px 28px; border-radius: 999px;
+    border: 1.5px solid var(--chip-border); background: transparent;
+    color: var(--muted); font: inherit; font-size: 15px; letter-spacing: .1em; cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .ghost:hover, .ghost:focus-visible { background: rgba(1, 68, 146, .07); color: var(--ink); }
+  .about-line { font-size: 13px; color: var(--muted); }
+  .qq { font-size: 14px; color: var(--muted); }
+  .qq-num {
+    font: inherit; font-weight: 700; font-variant-numeric: tabular-nums;
+    color: var(--ink); background: none; cursor: pointer;
+    padding: 3px 13px; margin: 0 8px; border: 1.5px dashed var(--chip-border); border-radius: 999px;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .qq-num:hover, .qq-num:focus-visible { border-color: var(--blue); background: rgba(1, 68, 146, .07); }
+  .qq-num.copied { border-style: solid; border-color: var(--blue); background: var(--yellow); color: var(--blue-deep); }
+  .linkish {
+    border: 0; background: none; padding: 0; font: inherit; font-size: 13px;
+    color: var(--ink); text-decoration: underline; text-underline-offset: 4px;
+    text-decoration-color: var(--chip-border); cursor: pointer;
+  }
+  .linkish:hover { text-decoration-color: currentColor; }
+  .flink {
+    color: var(--ink); text-decoration: underline; text-underline-offset: 4px;
+    text-decoration-color: var(--chip-border); transition: text-decoration-color .2s;
+  }
+  .flink:hover, .flink:focus-visible { text-decoration-color: currentColor; }
+
+  footer {
+    width: 100%; max-width: 980px;
+    display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    font-size: 12px; color: var(--muted);
+  }
+
+  /* ===== 载入动画:整屏蓝幕,校徽盖章 + 进度条,结束后上滑揭幕 ===== */
+  .loader {
+    position: fixed; inset: 0; z-index: 40;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 34px; overflow: hidden; cursor: pointer;
+    background:
+      radial-gradient(900px 480px at 50% 12%, rgba(254, 223, 104, .16), transparent 60%),
+      linear-gradient(175deg, #0753a8, var(--blue-deep));
+    color: #fff;
+    animation: curtain .65s cubic-bezier(.76, 0, .24, 1) 3.3s both;
+  }
+  .stamp { position: relative; width: clamp(160px, 26vw, 230px); aspect-ratio: 1; }
+  .stamp .disc { animation: stamp .7s cubic-bezier(.2, 1.4, .3, 1) .15s both; }
+  .ripple {
+    position: absolute; inset: -6px; border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, .8);
+    animation: ripple .9s ease-out .8s both;
+  }
+  .load-copy { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .status { display: grid; justify-items: center; font-size: 16px; letter-spacing: .12em; }
+  .status span { grid-area: 1 / 1; }
+  .status .l1 { animation: fade-out .3s ease 2.75s both; }
+  .status .l2 { color: var(--yellow); font-weight: 700; opacity: 0; animation: fade-in .35s ease 2.75s both; }
+  .dots i { display: inline-block; width: 4px; height: 4px; margin-left: 5px; border-radius: 50%; background: currentColor; vertical-align: 3px; animation: dot 1s ease-in-out infinite; }
+  .dots i:nth-child(2) { animation-delay: .15s; }
+  .dots i:nth-child(3) { animation-delay: .3s; }
+  .bar-row { display: flex; align-items: center; gap: 12px; }
+  .bar { width: min(240px, 56vw); height: 5px; border-radius: 99px; background: rgba(255, 255, 255, .22); overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 99px; background: var(--yellow); transform-origin: left; transform: scaleX(0); animation: fill 1.7s linear 1s both; }
+  .pct { min-width: 3.2em; text-align: left; font-size: 13px; font-variant-numeric: tabular-nums; color: rgba(255, 255, 255, .85); }
+  .js .pct { visibility: visible; }
+  .pct { visibility: hidden; }
+  .skip-hint { font-size: 12px; letter-spacing: .2em; color: rgba(255, 255, 255, .55); }
+
+  @keyframes curtain { to { transform: translateY(-102%); visibility: hidden; } }
+  @keyframes stamp { from { transform: scale(2.3) rotate(-14deg); opacity: 0; } 60% { transform: scale(.96) rotate(1deg); opacity: 1; } }
+  @keyframes ripple { from { transform: scale(.75); opacity: 1; } to { transform: scale(1.45); opacity: 0; } }
+  @keyframes fill { to { transform: scaleX(1); } }
+  @keyframes fade-out { to { opacity: 0; } }
+  @keyframes fade-in { from { opacity: 0; } }
+  @keyframes dot { 0%, 100% { opacity: .25; } 40% { opacity: 1; transform: translateY(-3px); } }
+  @keyframes spin { to { transform: rotate(1turn); } }
+  @keyframes float { 50% { transform: translateY(-9px); } }
+
+  /* hero 元素入场:等蓝幕揭开时依次浮现 */
+  .js .fx { animation: rise-in .7s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(3.45s + var(--i, 0) * 90ms); }
+  @keyframes rise-in { from { opacity: 0; transform: translateY(16px); } }
+
+  /* 跳过载入:直接呈现 hero */
+  .skip .loader { display: none; }
+  .skip .fx { animation: none; }
+
+  /* 点击「前往官网」后的离场 */
+  .leaving main, .leaving .top, .leaving footer { opacity: 0; transform: translateY(-10px); transition: opacity .4s ease, transform .4s ease; }
+
+  /* 撒花 */
+  .confetti { position: fixed; inset: 0; z-index: 30; pointer-events: none; overflow: hidden; }
+  .confetti i { position: absolute; top: -3vh; width: 9px; height: 14px; border-radius: 2px; opacity: .95; animation: fall var(--t, 2.6s) linear var(--d, 0s) both; }
+  @keyframes fall { to { transform: translateY(115vh) rotate(600deg); opacity: .4; } }
+
+  /* ===== 关于弹窗 ===== */
+  dialog.about {
+    width: min(400px, calc(100vw - 40px)); padding: 28px 26px 22px;
+    margin: auto;  /* 全局 reset 清掉了 UA 的 margin:auto,必须补回才能居中 */
+    border: 0; border-radius: 20px; background: var(--bg); color: var(--ink);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .35);
+  }
+  .about::backdrop { background: rgba(2, 20, 44, .55); backdrop-filter: blur(4px); }
+  .about h2 { font-family: var(--serif); font-size: 20px; letter-spacing: .1em; margin-bottom: 14px; }
+  .about p { font-size: 14px; line-height: 1.8; color: var(--muted); }
+  .about p + p { margin-top: 8px; }
+  .about code { font: inherit; font-weight: 700; color: var(--ink); }
+  .about form { margin-top: 20px; text-align: right; }
+  .about form button {
+    padding: 9px 22px; border: 0; border-radius: 999px;
+    background: var(--blue); color: #fff; font: inherit; font-size: 14px; cursor: pointer;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .go { background: linear-gradient(160deg, #ffe98f, var(--yellow)); color: var(--blue-deep); box-shadow: 0 16px 34px rgba(0, 0, 0, .45); }
+    .go:hover, .go:focus-visible { box-shadow: 0 22px 44px rgba(0, 0, 0, .55); }
+    .ghost:hover, .ghost:focus-visible { background: rgba(233, 239, 251, .09); }
+    .qq-num:hover, .qq-num:focus-visible { background: rgba(233, 239, 251, .09); }
+  }
+  @media (max-width: 560px) {
+    .top .est { display: none; }
+    .go { padding: 15px 30px; }
+    footer { justify-content: center; text-align: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .loader { display: none; }
+    .js .fx, .js .seal, .orbit, .orbit i, .stamp .disc, .ripple, .bar i, .status .l1, .status .l2, .dots i, .confetti i { animation: none; }
+    .status .l2 { opacity: 1; }
+    .bar i { transform: scaleX(1); }
+  }
+</style>
+</head>
+<body>
+<div class="frame" aria-hidden="true"></div>
+
+<div class="page">
+  <header class="top">
+    <div class="wordmark"><img src="logo.webp" alt="" width="30" height="30"><span>西安邮电奶龙大学</span></div>
+    <span class="est">EST. 1950</span>
+  </header>
+
+  <main>
+    <div class="seal fx" style="--i:0">
+      <div class="orbit" aria-hidden="true"><i class="dot-a"></i><i class="dot-b"></i></div>
+      <div class="disc"><img src="logo.webp" alt="西安邮电奶龙大学校徽" width="1024" height="1024"></div>
+    </div>
+    <p class="overline fx" style="--i:1">Xi'an University of Posts &amp; Telecommunications</p>
+    <h1 class="fx" style="--i:2">西安邮电<span class="hl">奶龙</span>大学</h1>
+    <p class="tagline fx" style="--i:3">奶龙已就位,即将护送你前往西安邮电大学官网。</p>
+    <ul class="chips fx" style="--i:4">
+      <li>1950 年建校</li>
+      <li>爱国 · 求是 · 奋进</li>
+      <li>四邮四电 · 自封</li>
+      <li>奶龙特级护学</li>
+    </ul>
+    <div class="cta fx" style="--i:5">
+      <a class="go" id="go" href="https://www.xiyou.edu.cn/">前往官网<span class="arr" aria-hidden="true">→</span></a>
+      <button class="ghost" id="replay" type="button">重播载入动画</button>
+    </div>
+    <p class="qq fx" style="--i:6">西安邮电大学奶龙群:QQ 群<button class="qq-num" id="qq-copy" type="button" data-num="822023428" title="点击复制群号">822023428</button>点击复制</p>
+    <p class="about-line fx" style="--i:7">友链:<a class="flink" href="https://nai.amoe.cc/" target="_blank" rel="noopener">NaiList · 奶群列表 ↗</a></p>
+    <p class="about-line fx" style="--i:8">第一次来?先看看<button class="linkish" id="about-btn" type="button">关于本站</button></p>
+  </main>
+
+  <footer>
+    <span>粉丝自制站点 · 与西安邮电大学无任何官方关联</span>
+    <span>西安邮电奶龙大学</span>
+  </footer>
+</div>
+
+<div class="loader" id="loader" role="status" aria-label="正在载入">
+  <div class="stamp" aria-hidden="true">
+    <div class="disc"><img src="logo.webp" alt="" width="1024" height="1024"></div>
+    <i class="ripple"></i>
+  </div>
+  <div class="load-copy">
+    <p class="status" aria-hidden="true">
+      <span class="l1">奶龙正在启动护送模式<i class="dots"><i></i><i></i><i></i></i></span>
+      <span class="l2">到站!欢迎来到西安邮电奶龙大学</span>
+    </p>
+    <div class="bar-row">
+      <div class="bar"><i></i></div>
+      <span class="pct" id="pct">0%</span>
+    </div>
+  </div>
+  <p class="skip-hint" aria-hidden="true">点击任意处跳过</p>
+</div>
+
+<dialog class="about" id="about" aria-labelledby="about-title">
+  <h2 id="about-title">关于本站</h2>
+  <p>这里是 <code>西安邮电奶龙大学</code>。打开页面会先看到校徽载入动画，然后由你亲手按下「前往官网」，把自己护送到西安邮电大学首页。</p>
+  <p>本站为奶龙粉丝作品，与西安邮电大学并无任何官方关联。校训：爱国、求是、奋进。想找组织？西安邮电大学奶龙群：822023428。</p>
+  <form method="dialog"><button>知道了</button></form>
+</dialog>
+
+<script>
+(() => {
+  const TARGET = 'https://www.xiyou.edu.cn/';
+  const BAR_START = 1000;   // 进度条启动,和 CSS 里 .bar i 的 delay 一致
+  const BAR_DUR = 1700;     // 进度条时长,和 CSS 里 .bar i 的 duration 一致
+  const REVEAL = 3550;      // 蓝幕揭开、hero 登场
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s) => document.querySelector(s);
+
+  /* 进度百分比:和 CSS 进度条共用同一条时间线 */
+  if (!reduce) {
+    const pct = $('#pct');
+    const tick = (now) => {
+      const p = Math.min(1, Math.max(0, (now - BAR_START) / BAR_DUR));
+      pct.textContent = Math.round(p * 100) + '%';
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  /* 揭幕撒花,并清掉蓝幕节点 */
+  function celebrate() {
+    if (!reduce && !root.classList.contains('skip')) spawnConfetti();
+    setTimeout(() => $('#loader')?.remove(), 500);
+  }
+  if (reduce) $('#loader')?.remove();
+  else {
+    setTimeout(celebrate, REVEAL);
+    /* 点击或按键跳过载入动画 */
+    const skip = () => {
+      const loader = $('#loader');
+      if (!loader) return;
+      root.classList.add('skip');
+      loader.remove();
+    };
+    $('#loader').addEventListener('pointerdown', skip);
+    addEventListener('keydown', skip, { once: true });
+  }
+
+  function spawnConfetti() {
+    const box = document.createElement('div');
+    box.className = 'confetti';
+    box.setAttribute('aria-hidden', 'true');
+    const colors = ['#014492', '#fedf68', '#f5c93e', '#7fb0ff'];
+    for (let i = 0; i < 28; i++) {
+      const p = document.createElement('i');
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.background = colors[i % colors.length];
+      p.style.setProperty('--t', 2.2 + Math.random() * 1.2 + 's');
+      p.style.setProperty('--d', Math.random() * .5 + 's');
+      p.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+      box.appendChild(p);
+    }
+    document.body.appendChild(box);
+    setTimeout(() => box.remove(), 4200);
+  }
+
+  /* 前往官网:先来个离场动画再跳走;无 JS 时就是普通链接 */
+  $('#go').addEventListener('click', (e) => {
+    if (root.classList.contains('leaving')) return;
+    e.preventDefault();
+    root.classList.add('leaving');
+    setTimeout(() => { location.href = TARGET; }, 420);
+  });
+
+  $('#replay').addEventListener('click', () => location.reload());
+
+  const about = $('#about');
+  $('#about-btn').addEventListener('click', () => about.showModal());
+  about.addEventListener('click', (e) => { if (e.target === about) about.close(); }); // 点遮罩关闭
+
+  /* 群号点击复制 */
+  const qqBtn = $('#qq-copy');
+  qqBtn.addEventListener('click', async () => {
+    if (qqBtn.classList.contains('copied')) return;
+    const num = qqBtn.dataset.num;
+    try {
+      await navigator.clipboard.writeText(num);
+    } catch {
+      const t = document.createElement('textarea'); // 非安全上下文(如 http)的兜底
+      t.value = num; document.body.appendChild(t); t.select();
+      document.execCommand('copy'); t.remove();
+    }
+    qqBtn.classList.add('copied');
+    qqBtn.textContent = '已复制 ✓';
+    setTimeout(() => { qqBtn.classList.remove('copied'); qqBtn.textContent = num; }, 1600);
+  });
+})();
+</script>
+
+</body>
+</html>
